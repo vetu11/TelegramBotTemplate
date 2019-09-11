@@ -1,0 +1,16 @@
+{
+  "lang_ver": "v0.1.0",
+  "not_found": "ERROR: texto no encontrado. Por favor usa /support <mensaje> describiendo cómo ha ocurrido.",
+  "start": "Hola! Bienvenido!",
+  "help": "Este es el mensaje de ayuda.",
+  "more": "¡He hecho más bots!\n@Pilocobot es un juego picante para beber con tus amigos, o para conocer mejor a los nuevos en la fiesta\n\n@QuienVienebot para contar facilmente los asistentes a un evento / queada.\n\n@SinSentidobot, que genera mensajes que parece que dicen algo pero la verdad que no.",
+  "donate": "Hola! Muchas gracias de antemano por considerar donar. Mi nombre es Ventura, soy estudiante y desarrollo bots gratuítos en mi tiempo libre.\nEl dinero de las donaciones va directamente al mantenimiento de los servidores.\n\nPuedes donar a través de [PayPal](paypal.me/vetu11), por Telegram usando los botones de abajo o con Ethereum enviándolo a la siguiente cartera\n`0xa1B41eD75Da5d053793168D1B4F28610779E8a7c`",
+  "about": "@{botusername} v{version}\n\nCasi todos mis bots son open-source, puedes encontrar el código fuente en github.com/vetu11",
+  "support_default": "Para pedir ayuda, enviar sugerencias, o reportar un bug usa /support <mensaje> y enviaré el mensaje al administrador del bot. Este podrá contactarte después.",
+  "support_sent": "He enviado el mensaje. Si es necesario serás contactado pronto.",
+  "private_command": "Usa este comando en chat privado.",
+  "donation_title": "Donación",
+  "donation_description": "Gracias por aportar a este proyecto. Usa el botón pagar para proceder al pago.",
+  "donations_not_available": "En este momento las donaciones no están disponibles. Puedes contactar con el desarrolador con /support",
+  "donation_completed": "Muchas gracias por donar "
+}
