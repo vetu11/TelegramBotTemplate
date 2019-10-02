@@ -22,8 +22,9 @@ class _Database:
         self._perma_conn = sqlite3.connect(DATABASE_PATH)
 
     def execute_and_commit(self, sql: str, parameters: iter):
-        self._perma_conn.execute(sql, parameters)
+        cursor = self._perma_conn.execute(sql, parameters)
         self._perma_conn.commit()
+        return cursor
 
     @staticmethod
     def get_connection():
