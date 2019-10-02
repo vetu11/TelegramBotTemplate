@@ -19,3 +19,5 @@ You can find real examples of this project layout on other repositories of mine,
 
 * If you add more commands or need to get different Telegram Updates link the functions on handlers.py to the dispatcher
   on bot.py
+
+* If you want to create a database with sqlite, create it an use the database.py singleton to access it from any file.
