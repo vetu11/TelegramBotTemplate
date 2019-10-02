@@ -7,7 +7,7 @@ if you want.
 
 You can find real examples of this project layout on other repositories of mine, but here are the basics:
 
-* You will need to install the python-telegram-bot library
+* Install all requirements.txt
 
 * To run the bot you must put the bot token given by [@botfather](t.me/botfather) on the bot_tokens.py file. If you want
   to use payments put there the payment provider token as well. With this done, the bot will run with the basic commands.
