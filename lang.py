@@ -22,7 +22,7 @@ class Lang:
         elif lang_code is not _available_langs:
             lang_code = "EN-en"
 
-        with open("langs/%s.json" % lang_code) as f:
+        with open("langs/%s.json" % lang_code, encoding="utf-8") as f:
             self.texts = json.load(f)
 
     def get_text(self, text_code, *args, **kwargs):
