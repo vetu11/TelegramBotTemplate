@@ -1,5 +1,5 @@
 """
-This class is an interface with the SQLite database.
+This class is a set of helper methods for the SQLite database.
 """
 
 import sqlite3
@@ -7,28 +7,11 @@ import sqlite3
 DATABASE_PATH = "database.db"
 
 
-class _DatabaseConnection:
-
-    def __init__(self, path=DATABASE_PATH):
-        self.conn = sqlite3.connect(path)
-
-    def __del__(self):
-        self.conn.close()
-
-
 class _Database:
-
-    def __init__(self):
-        self._perma_conn = sqlite3.connect(DATABASE_PATH)
-
-    def execute_and_commit(self, sql: str, parameters: iter):
-        cursor = self._perma_conn.execute(sql, parameters)
-        self._perma_conn.commit()
-        return cursor
 
     @staticmethod
     def get_connection():
-        return _DatabaseConnection()
+        return sqlite3.connect(DATABASE_PATH)
 
     @staticmethod
     def get_one_fetched_as_dict(cursor):
@@ -36,8 +19,9 @@ class _Database:
         row = cursor.fetchone()
         new_dict = {}
 
-        for i in range(len(row)):
-            new_dict[desc[i][0]] = row[i]
+        if row is not None:
+            for i in range(len(row)):
+                new_dict[desc[i][0]] = row[i]
         return new_dict
 
     @staticmethod
