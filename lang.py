@@ -4,23 +4,17 @@ The class Lang is a language (translation).
 Provides an interface to use the languages on the folder "langs"
 
 Use the function get_lang(language_code) to get the language you need and
-use the method Lange.get_text(text_code) to get it's language.
+use the method get_text(text_code) to get the text on the current language.
 """
 import json
 
 _initialized_langs = {}
-_available_langs = ["ES-es", "EN-en"]
-_lang_synonyms = {"es": "ES-es", "en": "EN-en"}  # Sometimes a language can be named with a synonym.
+_available_langs = ["en-GB", "es-ES"]
 
 
 class Lang:
 
-    def __init__(self, lang_code="EN-en"):
-
-        if lang_code is _lang_synonyms:
-            lang_code = _lang_synonyms[lang_code]
-        elif lang_code is not _available_langs:
-            lang_code = "EN-en"
+    def __init__(self, lang_code):
 
         with open("langs/%s.json" % lang_code, encoding="utf-8") as f:
             self.texts = json.load(f)
@@ -50,7 +44,19 @@ class Lang:
 def get_lang(lang_code):
     if lang_code in _initialized_langs:
         return _initialized_langs[lang_code]
-    else:
-        lang = Lang(lang_code)
-        _initialized_langs.update({lang_code: lang})
-        return lang
+
+    language = lang_code.split("-")[0]  # Remove region specific code if specified (ex. en-US -> en)
+
+    lang_code = _available_langs[0]  # The default language.
+    # We search for a same language-different region available lang.
+    for available_lang in _available_langs:
+        if available_lang.split("-")[0] == language:
+            lang_code = available_lang
+            break
+    
+    # Return the default-language or different region language.
+    if lang_code in _initialized_langs:
+        return _initialized_langs[lang_code]
+    lang = Lang(lang_code)
+    _initialized_langs.update({lang_code: lang})
+    return lang
