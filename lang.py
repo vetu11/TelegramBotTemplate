@@ -42,6 +42,9 @@ class Lang:
 
 
 def get_lang(lang_code):
+    if lang_code is None:
+        lang_code = _available_langs[0]
+
     if lang_code in _initialized_langs:
         return _initialized_langs[lang_code]
 
